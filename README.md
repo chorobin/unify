@@ -37,7 +37,7 @@ npm run test
 
 ## Authors
 
-* **Christopher Horobin** - *Initial work* - [PurpleBooth](https://github.com/chorobin
+* **Christopher Horobin** - *Initial work* - (https://github.com/chorobin)
 
 See also the list of [contributors](https://github.com/chorobin/unify/contributors) who participated in this project.
 
