@@ -1,5 +1,5 @@
 import { map } from '../../src/map';
-import { maybe, nothing } from '../../src/maybe';
+import { maybe, nothing, Maybe } from '../../src/maybe';
 import { of, Observable } from 'rxjs';
 import { map as rxMap } from 'rxjs/operators';
 import { List } from 'immutable';
@@ -7,7 +7,7 @@ import { List } from 'immutable';
 describe('map', () => {  
 
     it('should multiply each element in a non-empty array by 2', () => {
-        const array = [1, 2, 3];
+        const array: Array<number> = [1, 2, 3];
         const fn = (x: number) => x * 2;
         const timesTwo = map(fn)(array);
         expect(timesTwo).toEqual(array.map(fn));
@@ -21,7 +21,7 @@ describe('map', () => {
     });
 
     it('should just multiply 1 by 2', () => {
-        const maybeNumber = maybe(1);
+        const maybeNumber: Maybe<number> = maybe(1);
         const fn = (x: number) => x * 2;
         const timesTwo = map(fn)(maybeNumber);
         expect(timesTwo).toEqual(maybe(2));
