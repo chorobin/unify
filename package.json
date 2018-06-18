@@ -1,0 +1,41 @@
+{
+  "name": "unify",
+  "version": "0.0.1",
+  "description": "Unifies functors and monads into generic functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chorobin/unitfy.git"
+  },
+  "author": "Christopher Horobin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chorobin/unitfy/issues"
+  },
+  "homepage": "https://github.com/chorobin/unitfy#readme",
+  "devDependencies": {
+    "ts-jest": "^22.4.6",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "@types/jest": "^23.1.0",
+    "immutable": "^3.8.2",
+    "jest": "^23.1.0",
+    "rxjs": "^6.2.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "./test/.*\\.(ts|tsx)$"
+  }
+}
