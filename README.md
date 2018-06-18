@@ -16,7 +16,7 @@ Map works on an array
 ```typescript
 const array: Array<number> = [1, 2, 3];
 const fn = (x: number) => x * 2;
-const timesTwo = map(fn)(array);
+const timesTwo: Array<number> = map(fn)(array);
 ```
 
 Works on a the Maybe type
@@ -24,7 +24,7 @@ Works on a the Maybe type
 ```typescript
 const maybeNumber: Maybe<number> = maybe(1);
 const fn = (x: number) => x * 2;
-const timesTwo = map(fn)(maybeNumber);
+const timesTwo: Maybe<number> = map(fn)(maybeNumber);
 ```
 
 ### Installing
