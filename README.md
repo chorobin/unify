@@ -19,12 +19,28 @@ const fn = (x: number) => x * 2;
 const timesTwo: Array<number> = map(fn)(array);
 ```
 
-Works on a the Maybe type
+Works on the Maybe type
 
 ```typescript
 const maybeNumber: Maybe<number> = maybe(1);
 const fn = (x: number) => x * 2;
 const timesTwo: Maybe<number> = map(fn)(maybeNumber);
+```
+
+Works on Observables!
+
+```typescript
+const stream$: Observable<number> = of(1, 2, 3);
+const fn = (x: number) => x * 2;
+const timesTwo$: Observable<number> = map(fn)(stream$);
+```
+
+Works on ImmutableJS!
+
+```typescript
+const list: List<number> = List.of(1, 2, 3);
+const fn = (x: number) => x * 2;
+const timesTwo: List<number> = map(fn)(list);
 ```
 
 ### Installing
