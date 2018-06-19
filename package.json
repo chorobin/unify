@@ -4,7 +4,7 @@
   "description": "Unifies functors and monads into generic functions",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "build": "tsc"
   },
   "repository": {
@@ -25,7 +25,8 @@
     "@types/jest": "^23.1.0",
     "immutable": "^3.8.2",
     "jest": "^23.1.0",
-    "rxjs": "^6.2.1"
+    "rxjs": "^6.2.1",
+    "tslint-config-airbnb": "^5.9.2"
   },
   "jest": {
     "moduleFileExtensions": [
