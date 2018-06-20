@@ -72,21 +72,21 @@ describe('flatMap', () => {
         const list = List.of(1, 2, 3);
         const fn = (x: number) => List.of(x, x - 1);
         const flattened = flatMap(fn)(list);
-        expect(flattened).toEqual(list.flatMap(fn));
+        expect(flattened).toEqual(list.flatMap(fn as (x: number | undefined) => List<number>));
     });
 
     it('should not flatten a empty list', () => {
         const list = List.of<number>();
         const fn = (x: number) => List.of(x, x - 1);
         const flattened = flatMap(fn)(list);
-        expect(flattened).toEqual(list.flatMap(fn));
+        expect(flattened).toEqual(list.flatMap(fn as (x: number | undefined) => List<number>));
     });
 
     it('should not flatten list with empty elements', () => {
         const list = List.of<number>(1, 2, 3);
         const fn = (x: number) => List.of<number>();
         const flattened = flatMap(fn)(list);
-        expect(flattened).toEqual(list.flatMap(fn));
+        expect(flattened).toEqual(list.flatMap(fn as (x: number | undefined) => List<number>));
     });
 
 });

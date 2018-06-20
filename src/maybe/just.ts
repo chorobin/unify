@@ -1,3 +1,4 @@
-import { Maybe } from './maybe';
-
-export type Just<T> = { readonly get: NonNullable<T>; readonly isNothing: boolean; };
+export type Just<T> = { 
+    readonly get: NonNullable<T>;
+    readonly isNothing: boolean;
+};

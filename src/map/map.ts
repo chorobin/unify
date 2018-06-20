@@ -1,21 +1,13 @@
-import { Observable, isObservable } from 'rxjs';
-import { Iterable } from 'immutable';
-import { Monad, MapMonad } from '../monad';
+import { Monad, MapMonad, resolve } from '../monad';
 import { map as rxMap } from 'rxjs/operators';
-import { Maybe, isMaybe, map as maybeMap } from '../maybe/maybe';
+import { map as maybeMap } from '../maybe/maybe';
+import { Iterable } from 'immutable';
 
-export const map = <T, U>(f: (val: T) => U) => <TMonad extends Monad<T>>(monad: TMonad) => {
-    let result: MapMonad<TMonad, U>;
-    if (isObservable(monad)) {
-        result = rxMap(f)(monad as Observable<T>) as MapMonad<TMonad, U>;
-    } else if (Iterable.isIterable(monad)) {
-        result = (monad as Iterable<number, T>).map(f as (val: T | undefined) => U) as MapMonad<TMonad, U>
-    } else if (isMaybe(monad)) {
-        result = maybeMap(f)(monad as Maybe<T>) as MapMonad<TMonad, U>;
-    } else if (Array.isArray(monad)) {
-        result = (monad as Array<T>).map(f) as MapMonad<TMonad, U>;
-    } else {
-        throw new Error('Invalid type');
-    }
-    return result;
-}
+const arrayMap = <T, U>(f: (val: T) => U) => (arr: Array<T>) =>
+    arr.map(f);
+
+const iterableMap = <T, U>(f: (val: T) => U) => (iter: Iterable<number, T>) =>
+    iter.map(f as (val: T | undefined) => U);
+
+export const map = <T, U>(f: (val: T) => U) => <TMonad extends Monad<T>>(monad: TMonad) => 
+    resolve(rxMap(f), iterableMap(f), arrayMap(f), maybeMap(f), monad) as MapMonad<TMonad, U>;

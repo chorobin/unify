@@ -7,5 +7,6 @@ exports.maybe = function (get) { return get ? { get: get, isNothing: false } : n
 exports.fold = function (ifJust, ifNothing) { return function (maybe) {
     return exports.isNothing(maybe) ? ifNothing : ifJust(maybe.get);
 }; };
+exports.foldLeft = function (ifJust, ifNothing) { return exports.fold(function (get) { return ifJust(ifNothing, get); }, ifNothing); };
 exports.map = function (f) { return exports.fold(function (get) { return exports.maybe(f(get)); }, nothing_1.nothing); };
 exports.flatMap = function (f) { return exports.fold(f, nothing_1.nothing); };
