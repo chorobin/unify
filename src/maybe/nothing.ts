@@ -1,6 +1,6 @@
 export type Nothing = {
-    readonly isNothing: boolean;
-}
+  readonly isNothing: boolean;
+};
 export const nothing: Nothing = {
-    isNothing: true    
-}
+  isNothing: true,
+};
